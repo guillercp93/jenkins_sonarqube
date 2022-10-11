@@ -4,7 +4,7 @@ services:
   jenkins:
     image: jenkins/jenkins:lts
     privileged: true
-    restart: unless-stopped
+    restart: on-failure
     user: root
     ports:
       - 8080:8080
@@ -19,6 +19,7 @@ services:
       - devops-net
   sonarqube:
     image: sonarqube:8.9.7-community
+    restart: on-failure
     depends_on:
       - db
     environment:

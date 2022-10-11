@@ -101,14 +101,30 @@ El siguiente paso es instalar la herramienta de **SonarQube Scanner for Jenkins*
 Despues de que se instale, vuelve al *Administrador de Jenkins* e ingresa en la *Configuracion del sistema*. Busca el apartado de **SonarQube servers** y da clic en el boton de *Agregar SonarQube*.
 Se te pedira los siguientes datos:
 - **Nombre:** Coloca un nombre cualquiera. Por ejemplo: localSQ
-- **Url del servidor**: URL donde esta desplegada SonarQube
+- **Url del servidor**: URL donde esta desplegada SonarQube. Colocar http://sonarqube:\<puerto especificado en el archivo de docker-compose\>
 - **Token de autenticacion**: Selecciona la credencial que creaste en el paso anterior.
 
-Luego se debe ir a *Configuracion de herramienta global*, e ir a los apartados de *SonarScanner for MSBuild* y *SonarQube Scanner*. En cada uno agregar el respectivo MSBuid y Scanner de SonarQube desde Github y Maven Central, se recomienda la ultima version.
+Luego se debe ir a *Configuración de herramienta global* e ir a los apartados de *SonarScanner for MSBuild* y *SonarQube Scanner*. En cada uno agregar el respectivo MSBuid y Scanner de SonarQube desde Github y Maven Central, se recomienda la ultima version.
+
+### **Conexión a un repositorio de Github**
+Para poder conectarse a un repositorio alojado en github, lo primero que se debe hacer es generar un *token de acceso personal*. Para hacer esto, se debe ir a **Configuración**, luego en el menú de la izquierda seleccionar **Configuración de desarrollador** y por último seleccionar **Token de acceso personal**.
+Luego, se da clic sobre el botón de **Generar nuevo token**, colocamos una *descripción* y por último seleccionamos los siguientes **scopes**:
+- [] repo
+  - [x] repo:status
+  - [x] repo_deployment
+  - [x] public_repo
+  - [x] repo:invite
+  - [x] security_events
+- [] admin:org
+  - [x] read:org
+- [] user
+  - [x] user:email
 
 ## **Consideraciones por lenguaje de programacion**
-
 ### **Para .NET Core**
+Se debe instalar los siguientes plugins para poder compilar, ejecutar pruebas y enviar a SonarQube:
+- **xUnit Plugin:** Este será el encargado de ejecutar las pruebas de una aplicación en .net Core.
+- **.NET SDK Support:** Con este plugin podemos ejecutar todas las funciones del comando *dotnet*, como por ejemplo compilar la aplicación. Con este último, debemos ir a *Configuración de herramientas global* e ir al apartado de *.NET SDK*, donde se colocará un **nombre**, se activa el check de **instalar automáticamente** y se hace clic sobre el botón de **añadir instalador** donde se selecciona *instalar desde microsoft.com*. Se nos va a desplegar un formulario donde escogeremos la *versión*, el *release*, la versión del *SDK* y por último la *plataforma de ejecución*, que en este caso es **linux**.
 
-
-https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-jenkins/
+## **Referencias**
+- [Sonar Scanner para Jenkins](https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-jenkins/)
