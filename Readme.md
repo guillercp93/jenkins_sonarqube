@@ -1,4 +1,4 @@
-# Configuración de herramientoas para DEVOPS
+# Configuración de herramientas para DEVOPS
 
 ## **Jenkins**
 
@@ -120,7 +120,17 @@ Luego, se da clic sobre el botón de **Generar nuevo token**, colocamos una *des
 - [ ] user
   - [x] user:email
 
-## **Consideraciones por lenguaje de programacion**
+Después de esto, ingresar a Jenkins con el usuario administrador, ir al menú y seleccionar **Administrar Jenkins**, luego ir al apartado de **Manage credentials**, ir al Scope llamado *System*, luego en *Credenciales globales* y dar clic en el botón de *Agregar credenciales*.
+Selecciona el tipo *Secret text*, y en el campo **Secret** pegar el *token* que se acabó de generar en *Github*.
+Luego ingresas un ID y una descripcion si lo vez necesario. Si no colocas un ID, el sistema genera uno automaticamente.
+
+También puedes colocar una descripción para identificar que esta es la clave de autenticación para github.
+
+Después se debe verificar cuál es la URL del **webhook** para Github. Se tiene que ir a **Administrar Jenkins**, luego **Configuración del sistema**, en el apartado de *Github* buscar la opción de **Sobreescribir la URL del Hook**, tendrá por defecto una parecida a esta: http://localhost:8080/github-webhook/.
+
+Copia la URL y luego ve al repositorio en github, da clic en la pestaña de **Configuración** y luego en el menú de la izquierda selecciona **WebHooks**, a la derecha presiona el botón **Agregar webhook** y sólo debes llenar el campo *Payload URL* con la dirección que copiaste anteriormente de Jenkins.
+
+## **Consideraciones por lenguaje de programación**
 ### **Para .NET Core**
 Se debe instalar los siguientes plugins para poder compilar, ejecutar pruebas y enviar a SonarQube:
 - **xUnit Plugin:** Este será el encargado de ejecutar las pruebas de una aplicación en .net Core.
