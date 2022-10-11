@@ -138,3 +138,4 @@ Se debe instalar los siguientes plugins para poder compilar, ejecutar pruebas y 
 
 ## **Referencias**
 - [Sonar Scanner para Jenkins](https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-jenkins/)
+- [Github, Jenkins y Ngrok](https://www.youtube.com/watch?v=YkabAT213h0)
