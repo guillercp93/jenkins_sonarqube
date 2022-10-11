@@ -109,15 +109,15 @@ Luego se debe ir a *Configuración de herramienta global* e ir a los apartados d
 ### **Conexión a un repositorio de Github**
 Para poder conectarse a un repositorio alojado en github, lo primero que se debe hacer es generar un *token de acceso personal*. Para hacer esto, se debe ir a **Configuración**, luego en el menú de la izquierda seleccionar **Configuración de desarrollador** y por último seleccionar **Token de acceso personal**.
 Luego, se da clic sobre el botón de **Generar nuevo token**, colocamos una *descripción* y por último seleccionamos los siguientes **scopes**:
-- [] repo
+- [ ] repo
   - [x] repo:status
   - [x] repo_deployment
   - [x] public_repo
   - [x] repo:invite
   - [x] security_events
-- [] admin:org
+- [ ] admin:org
   - [x] read:org
-- [] user
+- [ ] user
   - [x] user:email
 
 ## **Consideraciones por lenguaje de programacion**
