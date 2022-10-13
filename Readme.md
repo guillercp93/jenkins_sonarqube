@@ -135,7 +135,10 @@ Copia la URL y luego ve al repositorio en github, da clic en la pestaña de **Co
 Se debe instalar los siguientes plugins para poder compilar, ejecutar pruebas y enviar a SonarQube:
 - **xUnit Plugin:** Este será el encargado de ejecutar las pruebas de una aplicación en .net Core.
 - **.NET SDK Support:** Con este plugin podemos ejecutar todas las funciones del comando *dotnet*, como por ejemplo compilar la aplicación. Con este último, debemos ir a *Configuración de herramientas global* e ir al apartado de *.NET SDK*, donde se colocará un **nombre**, se activa el check de **instalar automáticamente** y se hace clic sobre el botón de **añadir instalador** donde se selecciona *instalar desde microsoft.com*. Se nos va a desplegar un formulario donde escogeremos la *versión*, el *release*, la versión del *SDK* y por último la *plataforma de ejecución*, que en este caso es **linux**.
-
+- **
 ## **Referencias**
 - [Sonar Scanner para Jenkins](https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-jenkins/)
 - [Github, Jenkins y Ngrok](https://www.youtube.com/watch?v=YkabAT213h0)
+- [Configurar Azure Active Directory en SonarQube](https://github.com/hkamel/sonar-auth-aad/wiki/Setup)
+- [Configurar Azure Active Directory en Jenkins](https://plugins.jenkins.io/azure-ad/)
+
