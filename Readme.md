@@ -85,6 +85,16 @@ Cuando se instala, SonarQube ya viene con un usuario administrador por defecto. 
 - **Nombre de usuario:** admin
 - **Contraseña:** admin
 
+### **Instalar plugins de administracion de credenciales**
+Tener presente que los proceso de las configuraciones que siguen necesitan del manejo de credenciales. Para esto se va a instalar los siguientes plugins para tal fin:
+- Credentials plugin
+- Credentials Binding
+
+### **Instalacion de plugins Pipeline**
+Para la creacion de jobs de tipo Pipeline, es necesario que se descargue el plugin:
+- **Pipeline:** Descargara las demas dependencias
+- **Workspace Cleanup:** Limpieza del espacio de trabajo, necesario en los pipeline
+
 ### **Integrar Jenkins con SonarQube**
 Lo primero es generar el token de SonarQube usando la cuenta del administrador.
 
@@ -107,7 +117,7 @@ Se te pedira los siguientes datos:
 Luego se debe ir a *Configuración de herramienta global* e ir a los apartados de *SonarScanner for MSBuild* y *SonarQube Scanner*. En cada uno agregar el respectivo MSBuid y Scanner de SonarQube desde Github y Maven Central, se recomienda la ultima version.
 
 ### **Conexión a un repositorio de Github**
-Para poder conectarse a un repositorio alojado en github, lo primero que se debe hacer es generar un *token de acceso personal*. Para hacer esto, se debe ir a **Configuración**, luego en el menú de la izquierda seleccionar **Configuración de desarrollador** y por último seleccionar **Token de acceso personal**.
+Para poder conectarse a un repositorio alojado en github, antes que nada, debe asegurarse que tiene el plugin de GIT instalado, luego lo que se debe hacer es generar un *token de acceso personal*. Para hacer esto, se debe ir a **Configuración**, luego en el menú de la izquierda seleccionar **Configuración de desarrollador** y por último seleccionar **Token de acceso personal**.
 Luego, se da clic sobre el botón de **Generar nuevo token**, colocamos una *descripción* y por último seleccionamos los siguientes **scopes**:
 - [x] repo
   - [x] repo:status
@@ -121,7 +131,7 @@ Luego, se da clic sobre el botón de **Generar nuevo token**, colocamos una *des
   - [x] user:email
 
 Después de esto, ingresar a Jenkins con el usuario administrador, ir al menú y seleccionar **Administrar Jenkins**, luego ir al apartado de **Manage credentials**, ir al Scope llamado *System*, luego en *Credenciales globales* y dar clic en el botón de *Agregar credenciales*.
-Selecciona el tipo *Secret text*, y en el campo **Secret** pegar el *token* que se acabó de generar en *Github*.
+Selecciona el tipo *Username y Password*, y en el campo **Username** colocar tu nombre de usuario de github, habilitar la opcion de *tratar nombre de usuario como secreto*, en el campo **Password** pegar el *token* que se acabó de generar en *Github*.
 Luego ingresas un ID y una descripcion si lo vez necesario. Si no colocas un ID, el sistema genera uno automaticamente.
 
 También puedes colocar una descripción para identificar que esta es la clave de autenticación para github.
