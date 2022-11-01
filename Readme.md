@@ -140,12 +140,19 @@ Después se debe verificar cuál es la URL del **webhook** para Github. Se tiene
 
 Copia la URL y luego ve al repositorio en github, da clic en la pestaña de **Configuración** y luego en el menú de la izquierda selecciona **WebHooks**, a la derecha presiona el botón **Agregar webhook** y sólo debes llenar el campo *Payload URL* con la dirección que copiaste anteriormente de Jenkins.
 
+### **Visualización de resultados de las pruebas**
+Para visualizar los resultados de las pruebas, se están usando los siguientes plugins:
+- **TestNG Results**: Este plugin muestra un gráfico de todas las ejecuciones del Job y ayuda en otros reportes como con el siguiente plugin.
+- **Test Results Analyzer**: Este plugin muestra a detalle por medio de gráficas y tablas el resultado de ejecutar los test de una aplicación.
+
 ## **Consideraciones por lenguaje de programación**
 ### **Para .NET Core**
 Se debe instalar los siguientes plugins para poder compilar, ejecutar pruebas y enviar a SonarQube:
 - **xUnit Plugin:** Este será el encargado de ejecutar las pruebas de una aplicación en .net Core.
 - **.NET SDK Support:** Con este plugin podemos ejecutar todas las funciones del comando *dotnet*, como por ejemplo compilar la aplicación. Con este último, debemos ir a *Configuración de herramientas global* e ir al apartado de *.NET SDK*, donde se colocará un **nombre**, se activa el check de **instalar automáticamente** y se hace clic sobre el botón de **añadir instalador** donde se selecciona *instalar desde microsoft.com*. Se nos va a desplegar un formulario donde escogeremos la *versión*, el *release*, la versión del *SDK* y por último la *plataforma de ejecución*, que en este caso es **linux**.
-- **
+- **MSTest Plugin**: Convierte el archivos en formato .TRX en reportes JUnit XML ára que cualquier otro plugin de visualización pueda mostrar los resultados.
+
+
 ## **Referencias**
 - [Sonar Scanner para Jenkins](https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-jenkins/)
 - [Github, Jenkins y Ngrok](https://www.youtube.com/watch?v=YkabAT213h0)
